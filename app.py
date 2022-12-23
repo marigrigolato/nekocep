@@ -1,11 +1,30 @@
 import requests
+from flask import Flask, render_template, request
 
 
-def buscar_cep(cep):
+app = Flask(__name__)
 
-  r = requests.get(f"https://viacep.com.br/ws/{cep}/json/")
-  r.raise_for_status()
+@app.route("/", methods=['GET'])
+def buscar_cep():
 
-  dados = r.json()
+  cep = request.args.get('cep', None)
 
-  return f"{dados['logradouro']} {dados['bairro']} {dados['localidade']} {dados['uf']} {dados ['cep']}"
+  address = {}
+
+  if cep:
+    r = requests.get(f"https://viacep.com.br/ws/{cep}/json/")
+
+    dados = r.json()
+
+    address = {
+      'logradouro': dados['logradouro'],
+      'bairro': dados['bairro'],
+      'localidade': dados['localidade'],
+      'uf': dados['uf'],
+      'cep': dados['cep']
+    }
+
+  else: 
+    address = None
+
+  return render_template("index.html", cep=cep, address=address)

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nekoCEP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,500;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/globalfooter.css">
+  </head>
+  <body>
+    <header>
+      <a id="logo" href="/">
+        <span>neko<strong>CEP</strong></span>
+      </a>
+    </header>
+    <main>
+      <section>
+        <div class="section-title">
+          <h1>Procure e encontre CEPS de todo o Brasil</h1>
+          <h2>NekoCEP é um meio simples e gratuito de encontrar o CEP desejado em um clique</h2>
+        </div>
+        <form method="get">
+          <input type="text" name="cep" value="{{ cep or '' }}" placeholder="Informe o CEP" autocomplete="off" required>
+          <button type="submit">
+            <span><ion-icon name="search" size="small"></ion-icon></span>
+          </button>
+        </form>
+        {% if address %}
+          <table>
+            <thead>
+              <tr>
+                <th>Logradouro</th>
+                <th>Bairro</th>
+                <th>Localidade/UF</th>
+                <th>CEP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ address.logradouro }}</td>
+                <td>{{ address.bairro }}</td>
+                <td>{{ address.localidade }}/{{ address.uf }}</td>
+                <td>{{ address.cep }}</td>
+              </tr>
+            </tbody>
+          </table>
+        {% endif %}
+      </section>
+    </main>
+    <footer>
+      <div class="footer-column">
+        <img src="/static/img/neko.svg" alt="neko Image" class="neko-image">
+        <div class="footer">
+          <div class="footer-copyright">
+            <p>Copyright © 2022 NekoApp Inc. Todos os direitos reservados.</p>
+          </div>
+          <div class="social-icons">
+            <p>Siga-nos</p>
+            <ul class="social-icons_list">
+              <li class="social-icons_item">
+                <a href="https://www.facebook.com/joicemarina" target="_blank">
+                  <img src="/static/img/facebook.svg" alt="Facebook Icon">
+                </a>
+              </li>
+              <li class="social-icons_item">
+                <a href="https://twitter.com/marigrigolato" target="_blank">
+                  <img src="/static/img/twitter.svg" alt="Twitter Icon">
+                </a>
+              </li>
+              <li class="social-icons_item">
+                <a href="https://www.instagram.com/marigrigolato/" target="_blank">
+                  <img src="/static/img/instagram.svg" alt="Instagram Icon">
+                </a>
+              </li>
+              <li class="social-icons_item">
+                <a href="https://www.linkedin.com/in/joice-grigolato/" target="_blank">
+                  <img src="/static/img/linkedin.svg" alt="LinkedIn Icon">
+                </a>
+              </li>
+              <li class="social-icons_item">
+                <a href="https://github.com/marigrigolato" target="_blank">
+                  <img src="/static/img/github.svg" alt="GitHub Icon">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
