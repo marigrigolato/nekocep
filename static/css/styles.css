@@ -6,6 +6,7 @@
 }
 
 html, body {
+  height: 100%;
   font-family: 'Roboto', sans-serif;
   font-weight: 500;
 }
@@ -27,7 +28,7 @@ main {
   align-items: center;
   justify-content: center;
   max-width: 1400px;
-  min-height: 967px;
+  height: calc(100% - 56px - 100px);
   margin: auto;
   padding: 3.5em 2em 3.5em;
 }
@@ -108,4 +109,17 @@ table tbody tr td {
   padding: 0.3em 0.5em 0.375em;
   font-weight: 300;
   color: rgb(19, 19, 19);
+}
+
+@media screen and (max-width: 540px) {
+  main {
+    height: calc(100% - 56px - 138px);
+  }
+}
+
+@media screen and (max-width: 375px) {
+  main {
+    height: calc(100% - 56px - 153px);
+    padding: 0 2em 3.5em;
+  }
 }

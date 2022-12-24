@@ -1,4 +1,6 @@
 footer {
+  position: fixed;
+  bottom: 0;
   width: 100%;
   padding-bottom: 2em;
   font-weight: 300;
@@ -45,6 +47,10 @@ footer p {
 }
 
 @media (max-width: 600px) {
+  footer {
+    padding-bottom: 1em;
+  }
+
   .footer, .footer-copyright {
     display: block;
     text-align: center;
